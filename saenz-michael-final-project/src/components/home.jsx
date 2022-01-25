@@ -8,7 +8,7 @@ function Home() {
           <div class="col-lg-7">
             <img
               class="img-fluid rounded mb-4 mb-lg-0"
-              src="../static/images/beach_sunset.jpg"
+              src={ require("../static/images/beach_sunset.jpg") }
               alt=""
             />
           </div>
