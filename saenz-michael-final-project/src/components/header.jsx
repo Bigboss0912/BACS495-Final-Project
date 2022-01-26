@@ -1,11 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import SearchBar from "./search_bar";
 
 function Header() {
   return (
     <div className="navigation">
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <div className="container">
+
           <NavLink className="navbar-brand" to="/">
             <ul lassName="navbar-nav ml-auto">
               <ul style={ { textAlign: "center" }}>
@@ -19,6 +21,11 @@ function Header() {
               </ul>
             </ul>
           </NavLink>
+
+          <div>
+            <SearchBar />
+          </div>
+          
           <div>
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
