@@ -7,7 +7,7 @@ function Header() {
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <div className="container">
           <NavLink className="navbar-brand" to="/">
-            <ul>
+            <ul lassName="navbar-nav ml-auto">
               <ul style={ { textAlign: "center" }}>
                 <img
                 class="img-fluid rounded mb-4 mb-lg-0"
@@ -22,13 +22,13 @@ function Header() {
           <div>
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/">
-                  <button type="button" class="btn btn-primary">Primary</button>
+                <NavLink className="nav-link" to="/login">
+                  <button type="button" class="btn btn-primary">Login</button>
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/about">
-                  About
+                <NavLink className="nav-link" to="/register">
+                  <button type="button" class="btn btn-secondary">Sign Up</button>
                 </NavLink>
               </li>
             </ul>
