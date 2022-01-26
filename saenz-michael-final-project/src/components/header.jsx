@@ -23,17 +23,12 @@ function Header() {
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <NavLink className="nav-link" to="/">
-                  Home
+                  <button type="button" class="btn btn-primary">Primary</button>
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/about">
                   About
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/contact">
-                  Contact
                 </NavLink>
               </li>
             </ul>
