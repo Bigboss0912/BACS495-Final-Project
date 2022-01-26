@@ -4,14 +4,14 @@ import 'bootstrap/dist/css/bootstrap.css';
 import "./index.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
-  Navigation,
+  Header,
   Footer,
   Home,
 } from "./components";
 
 ReactDOM.render(
   <Router>
-    <Navigation />
+    <Header />
     <Routes>
       <Route path="/" element={ <Home /> } />
     </Routes>
