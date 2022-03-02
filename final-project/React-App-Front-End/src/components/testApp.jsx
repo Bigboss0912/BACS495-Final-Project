@@ -19,7 +19,7 @@ class App extends Component {
          }
    render() {
         return (
-            <div className="App">
+            <div>
                 <h1>Users</h1>
                 {this.state.users.map(user =>
                 <div key={user._id}>

@@ -9,10 +9,10 @@ function Header() {
         <div className="container">
 
           <NavLink className="navbar-brand" to="/">
-            <ul lassName="navbar-nav ml-auto">
+            <ul className="navbar-nav ml-auto">
               <ul style={ { textAlign: "center" }}>
                 <img
-                class="img-fluid rounded mb-4 mb-lg-0"
+                className="img-fluid rounded mb-4 mb-lg-0"
                 src={ require("../static/images/brain_logo.png") }
                 alt=""
                 width="100" height="50"
@@ -30,12 +30,12 @@ function Header() {
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <NavLink className="nav-link" to="/login">
-                  <button type="button" class="btn btn-primary">Login</button>
+                  <button type="button" className="btn btn-primary">Login</button>
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/register">
-                  <button type="button" class="btn btn-secondary">Sign Up</button>
+                  <button type="button" className="btn btn-secondary">Sign Up</button>
                 </NavLink>
               </li>
             </ul>

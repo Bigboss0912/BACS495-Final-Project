@@ -79,18 +79,18 @@ function Register() {
 
   return (
     <div>
-      <div class="container">
-        <div class="row align-items-center my-5">
-          <div class="col-lg-7">
+      <div className="container">
+        <div className="row align-items-center my-5">
+          <div className="col-lg-7">
             <img
-              class="img-fluid rounded mb-4 mb-lg-0 picture-size"
+              className="img-fluid rounded mb-4 mb-lg-0 picture-size"
               src={ require("../static/images/chicago_overlook.jpg") }
               alt=""
             />
           </div>
-          <div class="col-lg-5">
+          <div className="col-lg-5">
             <div>
-              <h1 class="font-weight-light">Sign Up</h1>
+              <h1 className="font-weight-light">Sign Up</h1>
             </div>
 
             <div className="messages">
@@ -133,7 +133,7 @@ function Register() {
 
               <div>
                 <button
-                  class="btn btn-primary submit-btn"
+                  className="btn btn-primary submit-btn"
                   onClick={submitHandler}
                   type="submit"
                 >
