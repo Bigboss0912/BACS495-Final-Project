@@ -2,8 +2,17 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/', function(req, res) {
+
+  var db = req.app.locals.db;
+  db.collection('users').find({}).toArray(function(err, result) {
+    if (err) {
+      res.status(400).send("Error fetching records!!!");
+    } else {
+      res.json(result);
+    }
+  });
+
 });
 
 router.post('/', function (req, res) {

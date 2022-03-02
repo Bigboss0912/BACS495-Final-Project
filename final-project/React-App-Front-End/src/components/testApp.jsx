@@ -1,58 +1,38 @@
-import React, { Component } from "react";
-
+import React, { Component } from 'react';
+//import logo from './logo.svg';
+//import './App.css';
 class App extends Component {
-    constructor(props) {
-        super(props);
-        // this.state = { apiResponse: "" };
-    }
-
-    // callAPI() {
-    //     fetch("http://localhost:9000/testAPI")
-    //         .then(res => res.text())
-    //         .then(res => this.setState({ apiResponse: res }))
-    //         .catch(err => err);
-    // }
-
-    componentDidMount() {
-        // Simple POST request with a JSON body using fetch
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ title: 'React POST Request Example' })
-        };
-        fetch('localhost:9000/users', requestOptions)
-            .then(response => response.json())
-            .then(data => this.setState({ postId: data.id }));
-    }
-
-    render() {
+   constructor(){
+       super();
+       this.state ={users: []};
+   }
+   componentDidMount() {
+          fetch('/users')
+            .then(res => {
+                console.log(res);
+                return res.json()
+             })
+            .then(users => { 
+                console.log(users); 
+                this.setState({ users })
+             });
+         }
+   render() {
         return (
             <div className="App">
-                <header className="App-header">
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <form>
-              <label className="label">First Name</label>
-              <input
-                className="input"
-                onChange={firstNameChange}
-                value={firstName}
-                type="text"
-              />
-              <div>
-                <button
-                  class="btn btn-primary submit-btn"
-                  onClick={submitHandler}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
-                {/* <p className="App-intro">{this.state.apiResponse}</p> */}
+                <h1>Users</h1>
+                {this.state.users.map(user =>
+                <div key={user._id}>
+                  <ul>
+                    <ul>First Name: {user.firstName}</ul>
+                    <ul>Last Name: {user.lastName}</ul>
+                    <ul>Email: {user.email}</ul>
+                    <ul>Password: {user.password}</ul>
+                  </ul>
+                </div>
+              )}
             </div>
         );
     }
 }
-
 export default App;

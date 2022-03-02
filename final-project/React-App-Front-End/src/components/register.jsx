@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import axios from 'axios';
 import '../static/css/register.css';
 
 function Register() {
@@ -32,9 +33,21 @@ function Register() {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
     if (firstName === '' || lastName === '' || email === '' || password === '') {
       setError(true);
     } else {
+
+      const user = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password
+      }
+
+      axios.post('http://localhost:9000/users', user)
+        .then(res => console.log(res.data));
+
       setSubmitted(true);
       setError(false);
     }
