@@ -71,7 +71,7 @@ function Login() {
           <div className="col-lg-7">
             <img
               className="img-fluid rounded mb-4 mb-lg-0 picture-size"
-              src={ require("../static/images/chicago_overlook.jpg") }
+              src={ require("../static/images/norway.jpg") }
               alt=""
             />
           </div>
