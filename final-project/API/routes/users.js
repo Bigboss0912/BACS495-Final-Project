@@ -15,14 +15,14 @@ router.get('/', function(req, res) {
 
 });
 
-router.get('/login', function(req, res) {
+router.patch('/login', function(req, res) {
 
-  const retEmail = {
+  const reqEmail = {
     'email': req.body.email,
   }
 
   var db = req.app.locals.db;
-  db.collection('users').find(retEmail).toArray(function(err, result) {
+  db.collection('users').find(reqEmail).toArray(function(err, result) {
     if (err) {
       res.status(400).send("Error fetching records!!!");
     } else {

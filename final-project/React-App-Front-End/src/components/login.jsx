@@ -28,11 +28,10 @@ function Login() {
     } else {
 
       const user = {
-        email: email,
+        email: email
       }
-      console.log(JSON.stringify(user));
-
-      axios.get('http://localhost:9000/users/login', user)
+      
+      axios.patch('http://localhost:9000/users/login', user)
         .then(res => console.log(res.data));
 
       setSubmitted(true);
