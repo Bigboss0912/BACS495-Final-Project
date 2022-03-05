@@ -9,6 +9,7 @@ import {
   Home,
   Register,
   App,
+  Login,
 } from './components';
 
 ReactDOM.render(
@@ -18,6 +19,7 @@ ReactDOM.render(
       <Route path='/' element={ <Home /> } />,
       <Route path='/register' element={ <Register /> } />,
       <Route path='/app' element={ <App  /> } />,
+      <Route path='/login' element={ <Login  /> } />,
     </Routes>
     < Footer />
   </Router>,
