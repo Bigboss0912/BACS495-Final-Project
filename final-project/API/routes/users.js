@@ -15,6 +15,23 @@ router.get('/', function(req, res) {
 
 });
 
+router.get('/login', function(req, res) {
+
+  const retEmail = {
+    'email': req.body.email,
+  }
+
+  var db = req.app.locals.db;
+  db.collection('users').find(retEmail).toArray(function(err, result) {
+    if (err) {
+      res.status(400).send("Error fetching records!!!");
+    } else {
+      res.json(result);
+    }
+  });
+
+});
+
 router.post('/', function (req, res) {
 
   const user = {

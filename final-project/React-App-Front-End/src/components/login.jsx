@@ -29,10 +29,10 @@ function Login() {
 
       const user = {
         email: email,
-        password: password
       }
+      console.log(JSON.stringify(user));
 
-      axios.post('http://localhost:9000/users', user)
+      axios.get('http://localhost:9000/users/login', user)
         .then(res => console.log(res.data));
 
       setSubmitted(true);

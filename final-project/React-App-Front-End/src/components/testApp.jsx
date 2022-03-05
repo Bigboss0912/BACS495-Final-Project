@@ -7,7 +7,7 @@ class App extends Component {
        this.state ={users: []};
    }
    componentDidMount() {
-          fetch('/users')
+          fetch('http://localhost:9000/users')
             .then(res => {
                 console.log(res);
                 return res.json()
