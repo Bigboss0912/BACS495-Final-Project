@@ -31,8 +31,16 @@ function Login() {
         email: email
       }
       
+      // axios.patch('http://localhost:9000/users/login', user)
+      //   .then(res => console.log(res.data));
+
+
+      var response;
       axios.patch('http://localhost:9000/users/login', user)
-        .then(res => console.log(res.data));
+        .then(res => response = {res});
+
+      console.log(response);
+
 
       setSubmitted(true);
       setError(false);
