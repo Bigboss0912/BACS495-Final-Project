@@ -16,9 +16,9 @@ var MongoClient = require('mongodb').MongoClient;
 var port = normalizePort(process.env.PORT || '9000');
 app.set('port', port);
 
-MongoClient.connect("mongodb+srv://mike_snz:Sigma1992!@cluster0.lpxtl.mongodb.net/LoginInfo?retryWrites=true&w=majority", function(err, client){
+MongoClient.connect("mongodb+srv://mike_snz:Sigma1992!@cluster0.lpxtl.mongodb.net/FinalProject?retryWrites=true&w=majority", function(err, client){
   if(err) throw err;
-  db = client.db('LoginInfo');
+  db = client.db('FinalProject');
   app.locals.db = db;
   start_server();
   console.log("Server is up with database");

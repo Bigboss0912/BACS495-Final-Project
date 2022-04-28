@@ -10,6 +10,8 @@ import {
   Register,
   App,
   Login,
+  Questions,
+  SubmitQuestion,
 } from './components';
 
 ReactDOM.render(
@@ -20,6 +22,8 @@ ReactDOM.render(
       <Route path='/register' element={ <Register /> } />,
       <Route path='/app' element={ <App  /> } />,
       <Route path='/login' element={ <Login  /> } />,
+      <Route path='/questions' element={ <Questions /> } />,
+      <Route path='/submitQuestion' element={ <SubmitQuestion /> } />,
     </Routes>
     < Footer />
   </Router>,
