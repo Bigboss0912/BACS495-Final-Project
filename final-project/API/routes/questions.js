@@ -32,22 +32,22 @@ router.post('/', function (req, res) {
 
 router.patch('/', function(req, res) {
 
-  var updatequestion = {
-                        'id': req.body.id,
-                        'votes': req.params.newVotes
-                      }
+  var id = {
+    'id': req.body.id,
+  }
 
-  console.log(updatequestion.id);
-  console.log(req.params.newVotes);
-
+  var votes = {
+    'votes': req.body.votes
+  }
 
   var db = req.app.locals.db;
-  db.collection('questions').updateOne(req.body.id, req.body.newVotes, function(err, res) {
+  db.collection('questions').updateOne(id, { $set: votes}, function(err) {
     if (err) throw err;
-    console.log("1 document updated");
-    db.close();
   });
 
+  res.send(
+    '1 document updated'
+  );
 });
 
 module.exports = router;
