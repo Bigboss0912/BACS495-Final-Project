@@ -8,6 +8,9 @@ function Login() {
   const [password, setPassword] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
+  const [error2, setError2] = useState(false);
+  const [resPass, setResPass] = useState('');
+  const [resName, setResName] = useState('');
 
 
   const emailChange = (e) => {
@@ -30,26 +33,28 @@ function Login() {
       const user = {
         email: email
       }
-      
-      // axios.patch('http://localhost:9000/users/login', user)
-      //   .then(res => console.log(res.data));
 
-
-      var response;
       axios.patch('http://localhost:9000/users/login', user)
-        .then(res => response = {res});
+        .then(res => setResName(res.data[0].email));
 
-      console.log(response);
+      axios.patch('http://localhost:9000/users/login', user)
+        .then(res => setResPass(res.data[0].password));
 
-
-      setSubmitted(true);
-      setError(false);
+      if(password === resPass && email === resName) {
+        setSubmitted(true);
+        setError(false);
+        setError2(false);
+      } else {
+        setError(false);
+        setError2(true);
+      }
     }
   };
 
   const successMessage = () => {
     return (
       <div
+        className="success-message"
         style={{
           display: submitted ? '' : 'none',
         }}>
@@ -69,6 +74,18 @@ function Login() {
         </div>
     );
   };
+
+  const errorMessage2 = () => {
+    return (
+      <div
+        className="error-message"
+        style={{
+          display: error2 ? '' : 'none',
+        }}>
+          <h4>Email or Password Wrong</h4>
+        </div>
+    );
+  };
   
 
   return (
@@ -84,12 +101,13 @@ function Login() {
           </div>
           <div className="col-lg-5">
             <div>
-              <h1 className="font-weight-light">Sign Up</h1>
+              <h1 className="font-weight-light">Login</h1>
             </div>
 
             <div className="messages">
               {successMessage()}
               {errorMessage()}
+              {errorMessage2()}
             </div>
 
             <form>
