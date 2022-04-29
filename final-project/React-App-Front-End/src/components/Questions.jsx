@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
+import { v4 as uuidv4 } from "uuid";
 
 export default function Questions() {
     const [questions, setQuestions] = useState([]);
     const [update, setUpdate] = useState(0);
+    const [response, setResponse] = useState("");
 
     useEffect(() => {
         fetch('http://localhost:9000/questions')  
@@ -14,11 +16,7 @@ export default function Questions() {
 
         var newVotes = votes == null ? 1 : votes + 1;
 
-        console.log(newVotes);
-
         var updatequestion = {'id': id, 'votes': newVotes}
-
-        console.log(updatequestion)
         
         fetch('http://localhost:9000/questions', 
             {
@@ -32,6 +30,23 @@ export default function Questions() {
           .then(setUpdate(update + 1))
           .then(console.log("finished"))
     }
+
+    const submitResponse = (questionID) =>{
+        var id = uuidv4();
+        var qID = questionID;
+        var addResponse = {'id': id, 'qID': qID, 'response': response}
+
+        fetch('http://localhost:9000/responses', 
+            {
+                method:'POST', 
+                body: JSON.stringify(addResponse),
+                headers: {
+                  "Content-Type": "application/json; charset=utf-8",
+                }
+            })  
+          .then(res => res.json())
+          .then(data => console.log(data))
+      }
 
     return (
     <div>
@@ -55,12 +70,24 @@ export default function Questions() {
 
                             <p className="text-dark">(Votes: {q.votes == null ? "0":q.votes})</p>
                             <button className="btn btn-outline-dark" value="Vote" onClick={() => voteQuestion(q.id, q.votes)}>Vote</button>
+
+                            <div>
+                                <br></br>
+                                <div className="card text-center container p-3 mb-2 bg-secondary text-white">
+                                <form>
+                                    <textarea value={response} className="form-control form-control-lg" onChange={(e)=>setResponse(e.target.value)}></textarea>
+                                    <br/>
+                                    <button value="Submit A Response" className="btn btn-primary" onClick={() => submitResponse(q.id)}>Submit A Response</button>
+                                </form>
+                                </div>
+
+                            </div>
                         
                         </div>
                     </div>)
-                    
                     </div>)}
                 </div>
+
             </div>
         </div>
     </div>

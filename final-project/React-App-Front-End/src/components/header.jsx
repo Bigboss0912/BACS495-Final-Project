@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import SearchBar from "./search_bar";
+import '../static/css/header.css';
 
 function Header() {
   return (
@@ -23,7 +23,22 @@ function Header() {
           </NavLink>
 
           <div>
-            <SearchBar />
+          <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/submitQuestion">
+                  <li className="nav-item">
+                    <a className="nav-link text-white">Ask a Question</a>
+                  </li>
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/questions">
+                  <li className="nav-item">
+                    <a className="nav-link text-white">View Questions</a>
+                  </li>
+                </NavLink>
+              </li>
+            </ul>
           </div>
           
           <div>

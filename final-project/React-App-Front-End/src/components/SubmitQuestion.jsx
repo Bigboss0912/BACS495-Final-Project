@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { v4 as uuidv4 } from "uuid";
-import '../static/css/SubmitQuestion.css'
+import '../static/css/SubmitQuestion.css';
 
 export default function SubmitQuestion() {
     const [question, setQuestion] = useState("");
