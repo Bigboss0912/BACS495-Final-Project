@@ -75,7 +75,7 @@ export default function Questions() {
                                 <br></br>
                                 <div className="card text-center container p-3 mb-2 bg-secondary text-white">
                                 <form>
-                                    <textarea value={response} className="form-control form-control-lg" onChange={(e)=>setResponse(e.target.value)}></textarea>
+                                    <textarea className="form-control form-control-lg" onChange={(e)=>setResponse(e.target.value)}></textarea>
                                     <br/>
                                     <button value="Submit A Response" className="btn btn-primary" onClick={() => submitResponse(q.id)}>Submit A Response</button>
                                 </form>
@@ -86,6 +86,7 @@ export default function Questions() {
                         </div>
                     </div>)
                     </div>)}
+
                 </div>
 
             </div>
